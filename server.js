@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import { connectToMongoDB } from "./utils/db/connectDB.js";
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import postRoutes from "./routes/post.routes.js";
 
 // DEFINING VARIABLES
 const app = express();
@@ -19,7 +20,8 @@ app.use(cookieParser());
 
 // ROUTES
 app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 app.get("/", (req, res) => {
   res.send("server is running");
